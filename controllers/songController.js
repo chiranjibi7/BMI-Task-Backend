@@ -19,13 +19,4 @@ const getSongsByArtist=async(req,res)=>{
     }
 };
 
-const deleteSongsByArtist=async(req,res)=>{
-    try {
-        const {id}=req.params;
-        const songs=await Song.deleteMany({artist:id});
-        res.status(200).json(songs);
-    } catch (error) {
-        res.status(500).json({message:error.message})
-    }
-};
-module.exports={createSong,getSongsByArtist,deleteSongsByArtist}
+module.exports={createSong,getSongsByArtist}

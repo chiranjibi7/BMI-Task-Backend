@@ -22,11 +22,11 @@ const createArtist=async(req,res)=>{
 const deleteArtist=async(req,res)=>{
     try {
         const {id}=req.params;
-        await Song.deleteMany({artist:id});
         const artist=await Artist.findById(id);
         if(!artist){
            return res.status(404).json({message:`Cannot find any artist with id ${id}`});
         }
+        await Song.deleteMany({artist:id});
        const deletedArtist= await Artist.deleteOne({_id:artist._id});
         res.status(200).json({message:`${artist.name} along with all songs deleted successfully!`,...deletedArtist});
     } catch (error) {
