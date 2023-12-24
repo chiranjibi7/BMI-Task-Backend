@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose=require("mongoose");
 const {Schema}=mongoose;
 
 const songModel= new Schema(
@@ -22,6 +22,9 @@ const songModel= new Schema(
         productionDate:Date,
         awards:Array
        }
+    },
+    {
+        timestamps:true
     }
 );
 
